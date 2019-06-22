@@ -1,14 +1,13 @@
-
 /*
 ID: juliajung
 LANG: JAVA
 TASK: gift1
 */
-//package _1_2;
+package _1_2;
 import java.io.*;
 import java.util.*;
 
-public class gift1 {
+public class gift1_1 {
 	static Scanner in;
 	static PrintWriter out;
 	
@@ -16,8 +15,8 @@ public class gift1 {
 	
 	//static StringBuilder result;
 	
-	static int n;
-	static Map <String, Integer> m;
+	static int n, m[] ;
+	static String name[];
 	
 	public static void main(String [] args) {
 		try {
@@ -45,10 +44,12 @@ public class gift1 {
 			//initialize input variable
 			
 			n = in.nextInt();
-			m = new LinkedHashMap<String, Integer>();
+			name = new String [n];
+			m = new int [n];
 			
-			for( int i =0; i < n; i++) {
-				m.put(in.next(),0);
+			for( int i =0; i < n; i ++) {
+				name[i]=in.next();
+				m[i]= 0;
 			}
 			
 			//System.out.println(Arrays.toString(name));
@@ -67,15 +68,14 @@ public class gift1 {
 				}
 				int gift = money /d;
 				int r = money%d;
+				int index = find(giver);
 				
-				m.put(giver, m.get(giver)-money + r);
 				
+				m[index] = m[index] - money + r;
 				for( int i =0; i < d; i++) {
-					String people = in.next();
-					m.put(people, m.get(people)+gift);
+					index = find(in.next());
+					m[index] += gift;
 				}
-				
-				
 				
 				//System.out.println(giver);
 				//System.out.println(money);
@@ -84,14 +84,23 @@ public class gift1 {
 			}
 			
 			StringBuilder st = new StringBuilder();
-			for(String name : m.keySet()) {
-				st.append(name).append(" ").append(m.get(name)).append("\n");
+			for(int i =0; i < n;i++) {
+				st.append(name[i]).append(" ").append(m[i]).append("\n");
 				
 			}
 			
 			return st.toString();
 			
 		}
-		
+		static int find (String s) {
+			int index =0;
+			for(int i =0; i < n; i++) {
+				if(s.equals(name[i])) {
+					index = i;
+					break;
+				}
+			}
+			return index;
+		}
 
 }

@@ -1,9 +1,9 @@
 /*
 ID: juliajung
 LANG: JAVA
-TASK: ride
+TASK: friday
 */
-package _1_2;
+//package _1_2;
 import java.io.*;
 import java.util.*;
 
@@ -40,7 +40,7 @@ public class friday {
 			//get data
 			//initialize input variable
 			
-			day =0;
+			day =13;
 			d = new int [7];
 			n=in.nextInt();
 			
@@ -51,25 +51,35 @@ public class friday {
 			//process and output
 			
 			
-			for(int i =1900; i < i+n;i++) {
+			for(int i =1900; i < 1900 + n;i++) {
 				for(int j = 1; j <=12; j++) {
-					int date = (day + 13) %7;
+					int date = day %7;
+					//System.out.println(i + " " +  j + " " + date);
+					
 					d[date]++;
 					day+= m[j];
-					if(j==2 && isLeap(i))
+					
+					if(j==2 && isLeap(i)) {
 						day++;
+						//System.out.println(i + " " +  isLeap(i));
+					}
+						
+						
 				}
 			}
-			String result = Integer.toString(m[6]);
-			for(int i =0; i<5; i++) {
-				result+= " " + Integer.toString(m[i]);
+			
+			String result = Integer.toString(d[6]);
+			for(int i =0; i<=5; i++) {
+				result+= " " + Integer.toString(d[i]);
 			}
 			return result;
 			
 		}
 		
 		static boolean isLeap(int y) {
+			
 			if(y %4==0 && y%100 !=0 || y%400==0) {
+				
 				return true;
 			}else {
 				return false;

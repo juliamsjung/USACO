@@ -33,9 +33,7 @@ public class beads{
          in.close();
 
       } catch (Exception e) {
-
          e.printStackTrace();
-
       }
 
    }
@@ -66,8 +64,6 @@ public class beads{
          else
             c = recur(i, start);
 
-         
-
          if (max < c)
             max = c;
 
@@ -82,36 +78,28 @@ public class beads{
 
       boolean flag = false;
       int idx = i + 1;
-      int count = 2;
-      
+      int count = 2; 
 
       while (count < beads.length() / 2) {
 
          char curr = beads.charAt(idx);
-         
 
          if (!flag) {
-
             if (curr == c || curr == 'w')
                count++;
             else
                flag = true;
 
          } else {
-
             if (curr != c || curr == 'w')
                count++;
             else
                break;
-
+            
          }
-
          idx++;
-
       }
-
       return count;
-
    }
 
 

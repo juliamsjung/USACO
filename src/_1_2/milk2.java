@@ -1,13 +1,66 @@
+/*
+ID: juliajung
+LANG: JAVA
+TASK: ride
+*/
 package _1_2;
+import java.io.*;
+import java.util.*;
 
 public class milk2 {
-	public static void main (String [] args) {
-		pair f[] = new pair[N];
-		for( int i =0; i < N; i ++) {
-			f[i] = new pair(Integer.parseInt(in.nextToken()),Integer.parseInt(in.nextToken());
+	
+	static BufferedReader in;
+	static PrintWriter out;
+	static int N,f[];
+	
+	//static StringBuilder result;
+	static String result= "";
+	
+	public static void main(String [] args) {
+		try {
+			
+			//Initialize in & out
+			in = new BufferedReader(new FileReader("milk2.in"));
+			out = new PrintWriter(new File("milk2.out"));
+			
+			init();
+			
+			
+			//write out file
+			out.println(solve());
+			
+			out.close();
+			in.close();
+		}catch(Exception e){
+			e.printStackTrace();
+			
 		}
-		Arrays.sort(f);
+		
+		
+		
+		}private static void init() throws IOException{
+			//get data
+			//initialize input variable
+			N =  Integer.parseInt(in.readLine());
+			pair f[] = new pair[N];
+			
+			
+			for( int i =0; i < N; i ++) {
+				String s=in.readLine();				
+				StringTokenizer st = new StringTokenizer(s);
+				f[i] = new pair(Integer.parseInt(st.nextToken()),Integer.parseInt(st.nextToken()));
+			}
+			Arrays.sort(f);
 		}
+			
+		
+		public static String solve() {
+			//process and output
+			
+			return result;
+			
+		}
+		
 
 }
 class pair implements Comparable<pair>{

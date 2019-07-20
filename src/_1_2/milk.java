@@ -3,7 +3,7 @@ ID: juliajung
 LANG: JAVA
 TASK: milk
 */
-//package _1_2;
+package _1_2;
 import java.io.*;
 import java.util.*;
 

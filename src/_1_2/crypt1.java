@@ -3,7 +3,7 @@ ID: juliajung
 LANG: JAVA
 TASK: crypt1
 */
-package _1_2;
+//package _1_2;
 import java.io.*;
 import java.util.*;
 import java.util.ArrayList;
@@ -12,11 +12,10 @@ public class crypt1 {
 	static Scanner in;
 	static PrintWriter out;
 	static ArrayList <Integer> a = new ArrayList <Integer>();
-	static int N, count, x[], y[], p1, p2, p3;
-	
-	
-	
-	//static StringBuilder result;
+	static int N, count, p1, p2, p3;
+	static int x, y;
+	static String line;
+
 	
 	
 	public static void main(String [] args) {
@@ -44,10 +43,11 @@ public class crypt1 {
 		}private static void init() {
 			N = in.nextInt();
 			for(int i = 0; i < N; i++) {
-				a.add(in.nextInt());
+				int t = in.nextInt();
+				a.add(t);
+				line += "" + t;
 			}
-			x = new int [N*N*N];
-			y = new int [N*N];
+			
 			count  =0;
 			
 		}
@@ -58,21 +58,26 @@ public class crypt1 {
 				for(int j = 0; j < N; j++ ) {
 					
 					for(int k =0; k < N; k++) {
-						x[i] = (a.get(i) * 100) + (a.get(j) * 10) + (a.get(k));
 						
-						if(i==0) 
-							y[i] = a.get(j)*10 + a.get(k);
-						
-						p1 = x[i] * (y[i]%10);
-						p2 = x[i] * (y[i]/10);
-						p3 = p1 + (p2 *10);
-						
-						if((p1+"").length() !=3 || (p2+"").length() !=3)
-							continue;
-						else {
-							if(isValid(p1) && isValid(p2) && isValid(p3))
-								count++;
+						for(int m =0; m < N; m++) {
+							
+							for(int h =0; h < N; h++) {
+								x = (a.get(i) * 100) + (a.get(j) * 10) + (a.get(k));
+								
+								
+								p1 = x * a.get(m);
+								p2 = x * a.get(h);
+								p3 = p1 + (p2 *10);
+								
+								
+								
+								if(checkAll(p1) && checkAll(p2) && isValid(p3)) 
+									count++;
+							}
 						}
+						
+						
+						
 					}
 				}
 			}
@@ -80,19 +85,30 @@ public class crypt1 {
 			return count;
 			
 		}
-		static boolean isValid (int n) {
-			boolean chk = true;
+		static boolean checkAll(int n) {
+			return checkLength(n) && isValid(n);
+		}
+		
+		static boolean checkLength(int n) { //checking length
+			if((n+"").length() !=3) {
+				return false;
+			}
+			return true;
+		}
+		
+		static boolean isValid (int n) { //checking if it's in the arraylist
+			String temp = "" + n;
+			
 			for(int i = 0; i < (n+"").length(); i++) {
 			
-				if(a.indexOf(Integer.parseInt((n+"").substring(i,i+1)))<0) {
-					chk=false;
-					break;
-				}
-
+				String c = "" + temp.charAt(i);
+				if(!line.contains(c))
+					return false;
 				
 			}
-			return chk;
+			return true;
 		}
+		
 
 }
 

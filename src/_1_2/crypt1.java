@@ -3,7 +3,7 @@ ID: juliajung
 LANG: JAVA
 TASK: crypt1
 */
-//package _1_2;
+package _1_2;
 import java.io.*;
 import java.util.*;
 import java.util.ArrayList;

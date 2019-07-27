@@ -3,7 +3,7 @@ ID: juliajung
 LANG: JAVA
 TASK: palsquare
  */
-package _1_2;
+package _1_3;
 import java.util.*;
 import java.io.*;
 

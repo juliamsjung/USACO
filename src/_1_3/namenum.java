@@ -3,7 +3,7 @@
   LANG: JAVA
   TASK: namenum
  */
-package _1_2;
+package _1_3;
 import java.io.*;
 import java.util.*;
 import java.util.ArrayList;

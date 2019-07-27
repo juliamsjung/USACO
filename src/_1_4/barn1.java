@@ -3,7 +3,7 @@ ID: juliajung
 LANG: JAVA
 TASK: barn1
 */
-package _1_2;
+package _1_4;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.*;

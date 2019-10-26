@@ -1,4 +1,4 @@
-package dec2016;
+//package dec2016;
 import java.io.*;
 import java.util.*;
 public class blocks {
@@ -6,7 +6,6 @@ public class blocks {
 	static Scanner in;
 	static PrintWriter out;
 	static int[] abc;
-	static String[] a,b;
 	static int N;
 	
 	public static void main (String args[]) {
@@ -16,6 +15,8 @@ public class blocks {
 			out = new PrintWriter(new File ("blocks.out"));
 			
 			init();
+			solve();
+			
 			for(int i =0; i < 26; i++) {
 				out.println(abc[i]);
 			}
@@ -31,22 +32,38 @@ public class blocks {
 	
 	private static void init() {
 		N = in.nextInt();
-		a = new String[N];
-		b = new String[N];
 		abc = new int[26];
 		
-		for(int i =0; i < N; i++) {
-			a[i] = in.next();
-			b[i] = in.next();
-		}
-		//System.out.println(Arrays.toString(a));
-		//System.out.println(Arrays.toString(b));
+		
 	}
 	
 	private static void solve() {
 		for(int i =0; i < N; i++) {
-			for(int j =0; j < N; j++) {
-				
+			int[] f = new int [26];
+			int[] s = new int [26];
+			
+			String first = in.next();
+			String second = in.next();
+			
+			
+			for(int j =0; j < first.length(); j++) {
+				int n = first.charAt(j)-'a';
+				f[n]++;
+			}
+			for(int k =0; k < second.length(); k++) {
+				int m = second.charAt(k) -'a';
+				s[m]++;
+			}
+			//System.out.println(first + " " + Arrays.toString(f));
+			//System.out.println(second + " " + Arrays.toString(s));
+			
+			//get most for each letter and add it to abc
+			for(int x=0; x< 26; x++) {
+				if(f[x] >= s[x]) {
+					abc[x] += f[x];
+				}else {
+					abc[x] += s[x];
+				}
 			}
 		}
 	}

@@ -1,4 +1,4 @@
-//package dec2016;
+package dec2016;
 import java.io.*;
 import java.util.*;
 public class blocks {

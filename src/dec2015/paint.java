@@ -1,4 +1,4 @@
-//package dec2015;
+package dec2015;
 import java.io.*;
 import java.util.*;
 public class paint {

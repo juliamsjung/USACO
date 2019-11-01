@@ -1,4 +1,4 @@
-//package dec2016;
+package dec2016;
 import java.util.*;
 import java.io.*;
 public class cowsignal {

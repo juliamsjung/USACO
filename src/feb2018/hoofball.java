@@ -1,4 +1,4 @@
-//package feb2018;
+package feb2018;
 import java.io.*;
 import java.util.*;
 class hoofball {
@@ -59,8 +59,7 @@ class hoofball {
 			}else {
 				temp =i+1;
 			}
-			
-			//System.out.println(temp);
+		
 			t[i] = temp;
 			b[temp]++;
 					
@@ -78,20 +77,7 @@ class hoofball {
 			}
 		}
 		out.println(count);
-		/*
-		for(int i = N-1; i >0; i--) {
-			if(t[i] == i-1 && t[i-1] ==i) {
-				count++;
-				i--;
-			}
-		}
 		
-		
-		System.out.println(Arrays.toString(list));
-		System.out.println(Arrays.toString(b));
-		System.out.println(Arrays.toString(t));
-		System.out.println(Arrays.toString(index));
-		*/
 	
 	}
 

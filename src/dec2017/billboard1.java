@@ -1,7 +1,7 @@
 package dec2017;
 import java.util.*;
 import java.io.*;
-public class billboard {
+public class billboard1 {
 	
 	static Scanner in;
 	static PrintWriter out;
